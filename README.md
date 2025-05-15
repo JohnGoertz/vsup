@@ -3,27 +3,39 @@
 A Python package for visualizing data with uncertainty using Value-Suppressing Uncertainty Palettes (VSUPs).
 
 ## Installation
-
-```bash
-pip install vsup
-```
+Coming soon...
 
 ## Usage
 
 ```python
-import vsup
+from vsup import VSUP
 import numpy as np
+import matplotlib.pyplot as plt
 
-# Create a VSUP instance
-vsup = VSUP(colormap='viridis', mode='usl')
+# Create a grid of values and uncertainties for better visualization
+n_points = 50
+step = 1/n_points
+values = np.linspace(step/2, 1-step/2, n_points)
+uncertainties = np.linspace(step/2, 1-step/2, n_points)
 
-# Generate some data with uncertainty
-values = np.random.rand(100)
-uncertainties = np.random.rand(100)
+# Create a 2D grid
+values, uncertainties = np.meshgrid(values, uncertainties)
 
 # Colorize the data
-colors = vsup(values, uncertainties)
+axs = plt.subplots(3, 3, figsize=(9, 9))[1]
+
+for row, quantization in zip(axs, [None, 'linear','tree']):
+    for ax, mode in zip(row, ["us", "ul", "usl"]):
+
+        vsup = VSUP(palette='flare', mode=mode, quantization=quantization)
+
+        colors = vsup(values, uncertainties)
+        ax.pcolormesh(values, uncertainties, colors)
+        # ax.set_title(f"{mode}")  #\n({description})")
+        ax.set_xlabel("Value")
+        ax.set_ylabel("Uncertainty")
 ```
+![flare example](examples/flare_example.png)
 
 ## Features
 

@@ -16,7 +16,6 @@ The module provides two quantization strategies:
 """
 
 import numpy as np
-from typing import Tuple, List, Optional
 
 
 def linear_quantization(n_levels: int):

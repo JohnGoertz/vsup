@@ -193,7 +193,9 @@ class VSUP:
 
         # Ensure output has correct shape (original shape + 3 for RGB)
         if colors.shape != original_shape + (3,):
-            raise ValueError(f'Returned colors had shape {colors.shape}, expected {original_shape + (3,)}')
+            raise ValueError(
+                f"Returned colors had shape {colors.shape}, expected {original_shape + (3,)}"
+            )
 
         return colors
 
@@ -274,22 +276,26 @@ class VSUP:
             fig, ax = plt.subplots(figsize=(8, 6))
 
         # Create value and uncertainty samples
-        if self.quantization=='linear':
+        if self.quantization == "linear":
             v_levels = self.n_levels
         else:
             v_levels = self.tree_base ** (self.n_levels - 1)
-        v_step = 1/v_levels
-        values = np.linspace(v_step/2, 1-v_step/2, v_levels)*self.vmax+self.vmin
+        v_step = 1 / v_levels
+        values = (
+            np.linspace(v_step / 2, 1 - v_step / 2, v_levels) * self.vmax + self.vmin
+        )
         u_levels = self.n_levels
-        u_step = 1/self.n_levels
-        uncertainties = np.linspace(u_step/2, 1-u_step/2, u_levels)*self.umax+self.umin
+        u_step = 1 / self.n_levels
+        uncertainties = (
+            np.linspace(u_step / 2, 1 - u_step / 2, u_levels) * self.umax + self.umin
+        )
 
         # Create meshgrid for all combinations
         V, U = np.meshgrid(values, uncertainties)
 
         # Get colors for all combinations
         colors = self(V, U)
-        
+
         ax.pcolormesh(V, U, colors)
 
         # Add labels
@@ -307,13 +313,13 @@ class VSUP:
     def create_arcmap_legend(
         self,
         ax: Optional[plt.Axes] = None,
-        rotation = 90,
-        angular_width = 90,
-        lines = False,
-        line_color = "0.9",
-        line_alpha = 1,
-        line_width = 3,
-        orient = 'down'
+        rotation=90,
+        angular_width=90,
+        lines=False,
+        line_color="0.9",
+        line_alpha=1,
+        line_width=3,
+        orient="down",
     ) -> Tuple[plt.Axes, plt.Axes]:
         """
         Create an arcmap-style legend showing value-uncertainty combinations using wedges.
@@ -332,10 +338,10 @@ class VSUP:
             ax = plt.subplots(figsize=(4, 4))[1]
 
         rotation = {
-            'up': 90,
-            'left': 180,
-            'down': 270,
-            'right': 360,
+            "up": 90,
+            "left": 180,
+            "down": 270,
+            "right": 360,
         }[orient]
 
         # Create radial and angular divisions
@@ -387,7 +393,6 @@ class VSUP:
         # ax.set_ylabel("Uncertainty")
 
         if lines:
-
             # Add radial grid lines
             for r in radial_edges[1:]:
                 arc = Arc(
@@ -407,14 +412,18 @@ class VSUP:
             for layer in range(n_radial):
                 r0 = radial_edges[layer]
                 r1 = radial_edges[layer + 1]
-                n_div = self.tree_base ** layer + 1
+                n_div = self.tree_base**layer + 1
                 for theta in np.linspace(start_angle, stop_angle, n_div):
                     x0 = np.cos(theta) * r0
                     x1 = np.cos(theta) * r1
                     y0 = np.sin(theta) * r0
                     y1 = np.sin(theta) * r1
                     ax.plot(
-                        [x0, x1], [y0, y1], color=line_color, alpha=line_alpha, lw=line_width
+                        [x0, x1],
+                        [y0, y1],
+                        color=line_color,
+                        alpha=line_alpha,
+                        lw=line_width,
                     )
 
         offset = np.sin(angular_width / n_angular)
@@ -423,26 +432,26 @@ class VSUP:
         uncertainty_labels = np.linspace(self.umax, self.umin, n_radial + 1)
         for i, r in enumerate(radial_edges):
             angle = angular_edges[0]
-            ha = 'left'
+            ha = "left"
             match orient:
-                case 'up':
-                    x = np.cos(angle) * r + offset/2
-                    y = np.sin(angle) * r - offset/2
+                case "up":
+                    x = np.cos(angle) * r + offset / 2
+                    y = np.sin(angle) * r - offset / 2
                     labelrot = np.rad2deg(angle) - rotation
-                case 'left':
-                    x = np.cos(angle) * r + offset/2
-                    y = np.sin(angle) * r + offset/2
+                case "left":
+                    x = np.cos(angle) * r + offset / 2
+                    y = np.sin(angle) * r + offset / 2
                     labelrot = np.rad2deg(angle) - 90
-                case 'down':
-                    x = np.cos(angle) * r - offset/2
-                    y = np.sin(angle) * r + offset/2
+                case "down":
+                    x = np.cos(angle) * r - offset / 2
+                    y = np.sin(angle) * r + offset / 2
                     labelrot = np.rad2deg(angle) - 180
-                case 'right':
-                    x = np.cos(angle) * r - offset/2
-                    y = np.sin(angle) * r - offset/2
-                    ha = 'right'
+                case "right":
+                    x = np.cos(angle) * r - offset / 2
+                    y = np.sin(angle) * r - offset / 2
+                    ha = "right"
                     labelrot = np.rad2deg(angle) - rotation
-            
+
             ax.text(
                 x,
                 y,
@@ -450,27 +459,29 @@ class VSUP:
                 ha=ha,
                 va="center",
                 rotation=labelrot,
-                rotation_mode='anchor'
+                rotation_mode="anchor",
             )
 
         # Add value labels
-        value_labels = np.linspace(self.vmax, self.vmin, (n_angular // self.tree_base) + 1)
+        value_labels = np.linspace(
+            self.vmax, self.vmin, (n_angular // self.tree_base) + 1
+        )
         for j, angle in enumerate(angular_edges[:: self.tree_base]):
             x = np.cos(angle) * (1 + offset)
             y = np.sin(angle) * (1 + offset)
-            ha="center"
-            va="center"
+            ha = "center"
+            va = "center"
             match orient:
-                case 'up':
+                case "up":
                     labelrot = np.rad2deg(angle) - rotation
-                case 'left':
-                    ha = 'right'
+                case "left":
+                    ha = "right"
                     labelrot = np.rad2deg(angle) - rotation
-                case 'down':
-                    labelrot = rotation-np.rad2deg(angle)
-                case 'right':
-                    ha = 'left'
-                    labelrot = rotation-np.rad2deg(angle)
+                case "down":
+                    labelrot = rotation - np.rad2deg(angle)
+                case "right":
+                    ha = "left"
+                    labelrot = rotation - np.rad2deg(angle)
             ax.text(
                 x,
                 y,
@@ -478,26 +489,25 @@ class VSUP:
                 ha=ha,
                 va=va,
                 rotation=labelrot,
-                rotation_mode='anchor'
+                rotation_mode="anchor",
             )
-
 
         # Set equal aspect ratio and limits
         ax.set_aspect("equal")
         r_extent = np.sin(start_angle)
         match orient:
-            case 'up':
-                ax.set_xlim(-r_extent * (1 + offset*2), r_extent * (1 + offset*2))
-                ax.set_ylim(-offset*2, 1 + offset*2)
-            case 'left':
-                ax.set_xlim(-(1 + offset*2), offset*2)
-                ax.set_ylim(-r_extent * (1 + offset*2), r_extent * (1 + offset*2))
-            case 'down':
-                ax.set_xlim(-r_extent * (1 + offset*2), r_extent * (1 + offset*2))
-                ax.set_ylim(-(1 + offset*2), offset*2)
-            case 'right':
-                ax.set_xlim(-offset*2, 1 + offset*2)
-                ax.set_ylim(-r_extent * (1 + offset*2), r_extent * (1 + offset*2))
-                
+            case "up":
+                ax.set_xlim(-r_extent * (1 + offset * 2), r_extent * (1 + offset * 2))
+                ax.set_ylim(-offset * 2, 1 + offset * 2)
+            case "left":
+                ax.set_xlim(-(1 + offset * 2), offset * 2)
+                ax.set_ylim(-r_extent * (1 + offset * 2), r_extent * (1 + offset * 2))
+            case "down":
+                ax.set_xlim(-r_extent * (1 + offset * 2), r_extent * (1 + offset * 2))
+                ax.set_ylim(-(1 + offset * 2), offset * 2)
+            case "right":
+                ax.set_xlim(-offset * 2, 1 + offset * 2)
+                ax.set_ylim(-r_extent * (1 + offset * 2), r_extent * (1 + offset * 2))
+
         ax.axis("off")
         return ax

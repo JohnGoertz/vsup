@@ -64,4 +64,4 @@ If you use this package in your research, please cite the original VSUP paper:
 
 ## License
 
-MIT License 
+MIT License

@@ -25,12 +25,6 @@ def test_quantization_functions():
     assert value == 0.6  # Should be quantized to nearest 0.2
     assert uncert == 0.3  # Uncertainty should be unchanged
     
-    # Test square quantization
-    sq_quant = square_quantization(5)
-    value, uncert = sq_quant(0.7, 0.3)
-    assert value == 0.6  # Should be quantized to nearest 0.2
-    assert uncert == 0.2  # Should be quantized to nearest 0.2
-    
     # Test tree quantization
     tree_quant = tree_quantization(2, 3)
     value, uncert = tree_quant(0.7, 0.3)

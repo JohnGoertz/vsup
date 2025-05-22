@@ -360,7 +360,7 @@ class VSUP:
         - For tree quantization: branching^(n_levels-1) for value, n_levels for uncertainty
         """
         if ax is None:
-            fig, ax = plt.subplots(figsize=(8, 6))
+            fig, ax = plt.subplots()
 
         # Create value and uncertainty samples based on quantization settings
         if self.quantization == "linear":
@@ -368,35 +368,29 @@ class VSUP:
         else:
             v_levels = self.tree_base ** (self.n_levels - 1)
         # Create value samples at bin centers
-        v_step = 1 / v_levels
         values = (
-            np.linspace(v_step / 2, 1 - v_step / 2, v_levels) * self.vmax + self.vmin
+            np.linspace(self.vmin, self.vmax, v_levels+1)
         )
         # Create uncertainty samples
         u_levels = self.n_levels
-        u_step = 1 / self.n_levels
         uncertainties = (
-            np.linspace(u_step / 2, 1 - u_step / 2, u_levels) * self.umax + self.umin
+            np.linspace(self.umin, self.umax, u_levels+1)
         )
 
         # Create meshgrid for all value-uncertainty combinations
-        V, U = np.meshgrid(values, uncertainties)
+        V, U = np.meshgrid(values[:-1], uncertainties[:-1])
 
         # Get colors for all combinations
         colors = self(V, U)
 
         # Create heatmap
-        ax.pcolormesh(V, U, colors)
+        ax.pcolormesh(values, uncertainties, colors, shading='flat')
 
         # Add labels
-        # ax.set_xticks(range(self.n_levels))
-        # ax.set_yticks(range(self.n_levels))
-        # ax.set_xticklabels([f"{v:.1f}" for v in values])
-        # ax.set_yticklabels([f"{u:.1f}" for u in uncertainties])
 
         ax.set_xlabel("Value")
         ax.set_ylabel("Uncertainty")
-        ax.axis("square")
+        ax.set_box_aspect(1)
 
         return ax
 

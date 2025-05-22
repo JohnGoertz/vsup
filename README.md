@@ -40,7 +40,7 @@ for row, quantization in zip(axs, [None, 'linear','tree']):
 ## Features
 
 - Three visualization modes:
-  - USL: Uncertainty mapped to Saturation and Lightness
+  - USL: Uncertainty mapped to Saturation (chroma) and Lightness
   - US: Uncertainty mapped to Saturation
   - UL: Uncertainty mapped to Lightness
 - Two quantization mods:

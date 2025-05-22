@@ -368,14 +368,10 @@ class VSUP:
         else:
             v_levels = self.tree_base ** (self.n_levels - 1)
         # Create value samples at bin centers
-        values = (
-            np.linspace(self.vmin, self.vmax, v_levels+1)
-        )
+        values = np.linspace(self.vmin, self.vmax, v_levels + 1)
         # Create uncertainty samples
         u_levels = self.n_levels
-        uncertainties = (
-            np.linspace(self.umin, self.umax, u_levels+1)
-        )
+        uncertainties = np.linspace(self.umin, self.umax, u_levels + 1)
 
         # Create meshgrid for all value-uncertainty combinations
         V, U = np.meshgrid(values[:-1], uncertainties[:-1])
@@ -384,7 +380,7 @@ class VSUP:
         colors = self(V, U)
 
         # Create heatmap
-        ax.pcolormesh(values, uncertainties, colors, shading='flat')
+        ax.pcolormesh(values, uncertainties, colors, shading="flat")
 
         # Add labels
 

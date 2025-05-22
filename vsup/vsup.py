@@ -25,7 +25,7 @@ class VSUP:
 
     Parameters
     ----------
-    palette : str, optional
+    palette : str | matplotlib.colors.Colormap, optional
         Name of the palette to use (default: 'viridis')
     mode : {'usl', 'us', 'ul'}, optional
         Visualization mode to use:
@@ -56,7 +56,7 @@ class VSUP:
 
     def __init__(
         self,
-        palette: str = "viridis",
+        palette: Union[str, mcolors.Colormap] = "viridis",
         mode: Literal["usl", "us", "ul"] = "usl",
         quantization: Literal[None, "linear", "tree"] = "linear",
         n_levels: Optional[int] = 5,

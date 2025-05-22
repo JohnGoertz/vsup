@@ -5,6 +5,23 @@ A Python package for visualizing data with uncertainty using Value-Suppressing U
 ## Installation
 Coming soon...
 
+### Development
+
+The project is developed with [uv](https://docs.astral.sh/uv/).
+
+To check for a local python environment, run:
+
+```bash
+uv run python
+```
+
+Also install the [pre-commit](https://pre-commit.com/) hooks with:
+
+```bash
+uv tool install pre-commit
+pre-commit install
+```
+
 ## Usage
 
 ```python

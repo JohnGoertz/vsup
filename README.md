@@ -3,7 +3,10 @@
 A Python package for visualizing data with uncertainty using Value-Suppressing Uncertainty Palettes (VSUPs). Inspired by https://github.com/uwdata/vsup.
 
 ## Installation
-Coming soon...
+
+```bash
+pip install vsup
+```
 
 ### Development
 

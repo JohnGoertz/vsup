@@ -34,9 +34,9 @@ import matplotlib.pyplot as plt
 
 # Create a grid of values and uncertainties for better visualization
 n_points = 50
-step = 1/n_points
-values = np.linspace(step/2, 1-step/2, n_points)
-uncertainties = np.linspace(step/2, 1-step/2, n_points)
+step = 1 / n_points
+values = np.linspace(step / 2, 1 - step / 2, n_points)
+uncertainties = np.linspace(step / 2, 1 - step / 2, n_points)
 
 # Create a 2D grid
 values, uncertainties = np.meshgrid(values, uncertainties)
@@ -44,10 +44,9 @@ values, uncertainties = np.meshgrid(values, uncertainties)
 # Colorize the data
 axs = plt.subplots(3, 3, figsize=(9, 9))[1]
 
-for row, quantization in zip(axs, [None, 'linear','tree']):
+for row, quantization in zip(axs, [None, "linear", "tree"]):
     for ax, mode in zip(row, ["us", "ul", "usl"]):
-
-        vsup = VSUP(palette='flare', mode=mode, quantization=quantization)
+        vsup = VSUP(palette="flare", mode=mode, quantization=quantization)
 
         colors = vsup(values, uncertainties)
         ax.pcolormesh(values, uncertainties, colors)

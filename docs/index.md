@@ -56,7 +56,6 @@ for row, quantization in zip(axs, [None, 'linear','tree']):
 
 ## Example
 
-
 ```python {marimo}
 import marimo as mo
 

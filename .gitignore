@@ -16,3 +16,4 @@ dist/*
 build/
 *.swp
 sandbox/*
+site/*

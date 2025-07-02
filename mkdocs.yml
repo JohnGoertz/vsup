@@ -1,8 +1,8 @@
 site_name: VSUP
 
-# theme:
-#   name: "material"
-theme: readthedocs
+theme:
+  name: "material"
+# theme: readthedocs
 
 repo_name: VSUP
 repo_url: https://github.com/JohnGoertz/vsup

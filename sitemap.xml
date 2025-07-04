@@ -2,26 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://JohnGoertz.github.io/vsup/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <lastmod>2025-07-04</lastmod>
     </url>
     <url>
-         <loc>https://JohnGoertz.github.io/vsup/autoapi/summary/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <loc>https://JohnGoertz.github.io/vsup/api/quantization/</loc>
+         <lastmod>2025-07-04</lastmod>
     </url>
     <url>
-         <loc>https://JohnGoertz.github.io/vsup/autoapi/vsup/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <loc>https://JohnGoertz.github.io/vsup/api/transforms/</loc>
+         <lastmod>2025-07-04</lastmod>
     </url>
     <url>
-         <loc>https://JohnGoertz.github.io/vsup/autoapi/vsup/quantization/</loc>
-         <lastmod>2025-07-02</lastmod>
-    </url>
-    <url>
-         <loc>https://JohnGoertz.github.io/vsup/autoapi/vsup/transforms/</loc>
-         <lastmod>2025-07-02</lastmod>
-    </url>
-    <url>
-         <loc>https://JohnGoertz.github.io/vsup/autoapi/vsup/vsup/</loc>
-         <lastmod>2025-07-02</lastmod>
+         <loc>https://JohnGoertz.github.io/vsup/api/vsup/</loc>
+         <lastmod>2025-07-04</lastmod>
     </url>
 </urlset>

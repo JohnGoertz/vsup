@@ -12,7 +12,7 @@
       
       
       
-        <link rel="next" href="autoapi/vsup/">
+        <link rel="next" href="api/vsup/">
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -52,9 +52,9 @@
     
     
     
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.14.9/dist/main.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.14.10/dist/main.js"></script>
 <link
-    href="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.14.9/dist/style.css"
+    href="https://cdn.jsdelivr.net/npm/@marimo-team/islands@0.14.10/dist/style.css"
     rel="stylesheet"
     crossorigin="anonymous"
 />
@@ -376,15 +376,20 @@
     
     
     
+      
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -410,20 +415,9 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
+    <li class="md-nav__item">
+      <a href="api/vsup/" class="md-nav__link">
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-            
   
   
   <span class="md-ellipsis">
@@ -432,15 +426,11 @@
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_1">
-            <span class="md-nav__icon md-icon"></span>
-            vsup
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -449,7 +439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="autoapi/vsup/quantization/" class="md-nav__link">
+      <a href="api/quantization/" class="md-nav__link">
         
   
   
@@ -472,7 +462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="autoapi/vsup/transforms/" class="md-nav__link">
+      <a href="api/transforms/" class="md-nav__link">
         
   
   
@@ -483,37 +473,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="autoapi/vsup/vsup/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    vsup
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -682,7 +641,7 @@
 </span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Uncertainty&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="example">Example</h2>
-<p><marimo-island data-app-id=main data-cell-id=Hbol data-reactive=true><marimo-cell-output><marimo-mime-renderer data-mime='"application/vnd.marimo+error"' data-data='[{"msg": "No module named &#39;matplotlib&#39;", "exception_type": "ModuleNotFoundError", "raising_cell": null, "type": "exception"}]'></marimo-mime-renderer></marimo-cell-output><marimo-cell-code hidden>import%20marimo%20as%20mo%0A%0Aimport%20micropip%0Aawait%20micropip.install(%5B%22vsup%22%2C%20%22matplotlib%22%2C%20%22numpy%22%5D)%0A%0Afrom%20matplotlib%20import%20colormaps%0A%0Aseaborn_colors%20%3D%20%5B%22flare%22%5D%0Amatplotlib_colors%20%3D%20list(colormaps)%0Acolors%20%3D%20seaborn_colors%20%2B%20matplotlib_colors%0A%0Apalette%20%3D%20mo.ui.dropdown(options%3Dcolors%2C%20value%3D%22flare%22%2C%20label%3D%22Palette%3A%22)%0Apalette</marimo-cell-code></marimo-island></p>
+<p><marimo-island data-app-id=main data-cell-id=Hbol data-reactive=true><marimo-cell-output><marimo-mime-renderer data-mime='"application/vnd.marimo+error"' data-data='[{"msg": "No module named &#39;matplotlib&#39;", "exception_type": "ModuleNotFoundError", "raising_cell": null, "type": "exception"}]'></marimo-mime-renderer></marimo-cell-output><marimo-cell-code hidden>import%20marimo%20as%20mo%0A%0Aimport%20micropip%0Aawait%20micropip.install(%5B%22vsup%22%2C%20%22matplotlib%22%2C%20%22numpy%22%5D)%0A%0Afrom%20matplotlib%20import%20colormaps%0A%0Aseaborn_colors%20%3D%20%5B%22flare%22%2C%20%22rocket%22%2C%20%22crest%22%2C%20%22mako%22%2C%20%22coolwarm%22%2C%20%22vlag%22%2C%20%22icefire%22%2C%20%22ch%3As%3D-.2%2Cr%3D.6%22%2C%20%22ch%3Astart%3D.2%2Crot%3D-.3%22%2C%20%22husl%22%5D%0Amatplotlib_colors%20%3D%20list(colormaps)%0Acolors%20%3D%20seaborn_colors%20%2B%20matplotlib_colors%0A%0Apalette%20%3D%20mo.ui.dropdown(options%3Dcolors%2C%20value%3D%22flare%22%2C%20label%3D%22Palette%3A%22)%0Apalette</marimo-cell-code></marimo-island></p>
 <p><marimo-island data-app-id=main data-cell-id=MJUe data-reactive=true><marimo-cell-output><marimo-mime-renderer data-mime='"application/vnd.marimo+error"' data-data='[{"msg": "An ancestor raised an exception (ModuleNotFoundError): ", "exception_type": "ModuleNotFoundError", "raising_cell": "Hbol", "type": "exception"}]'></marimo-mime-renderer></marimo-cell-output><marimo-cell-code hidden>def%20palette_not_selected()%3A%0A%20%20%20%20return%20mo.md(%22Please%20select%20a%20palette%20first.%22)%0A%0Adef%20showcase_palette(palette%3A%20str)%3A%0A%20%20%20%20try%3A%0A%20%20%20%20%20%20%20%20from%20vsup%20import%20VSUP%0A%20%20%20%20%20%20%20%20import%20numpy%20as%20np%0A%20%20%20%20%20%20%20%20import%20matplotlib.pyplot%20as%20plt%0A%20%20%20%20except%20ImportError%3A%0A%20%20%20%20%20%20%20%20return%20mo.md(%22Packages%20are%20still%20loading%2C%20please%20wait%20a%20moment.%22)%0A%0A%20%20%20%20%23%20Create%20a%20grid%20of%20values%20and%20uncertainties%20for%20better%20visualization%0A%20%20%20%20n_points%20%3D%2050%0A%20%20%20%20step%20%3D%201%2Fn_points%0A%20%20%20%20values%20%3D%20np.linspace(step%2F2%2C%201-step%2F2%2C%20n_points)%0A%20%20%20%20uncertainties%20%3D%20np.linspace(step%2F2%2C%201-step%2F2%2C%20n_points)%0A%0A%20%20%20%20%23%20Create%20a%202D%20grid%0A%20%20%20%20values%2C%20uncertainties%20%3D%20np.meshgrid(values%2C%20uncertainties)%0A%0A%20%20%20%20%23%20Colorize%20the%20data%0A%20%20%20%20size%20%3D%209%0A%20%20%20%20fig%2C%20axs%20%3D%20plt.subplots(3%2C%203%2C%20figsize%3D(size%2C%20size))%0A%0A%20%20%20%20for%20row%2C%20quantization%20in%20zip(axs%2C%20%5BNone%2C%20'linear'%2C'tree'%5D)%3A%0A%20%20%20%20%20%20%20%20for%20ax%2C%20mode%20in%20zip(row%2C%20%5B%22us%22%2C%20%22ul%22%2C%20%22usl%22%5D)%3A%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20vsup%20%3D%20VSUP(palette%3Dpalette%2C%20mode%3Dmode%2C%20quantization%3Dquantization)%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20colors%20%3D%20vsup(values%2C%20uncertainties)%0A%20%20%20%20%20%20%20%20%20%20%20%20ax.pcolormesh(values%2C%20uncertainties%2C%20colors)%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20ax.set_title(f%22%7Bmode%7D%22)%20%20%23%5Cn(%7Bdescription%7D)%22)%0A%20%20%20%20%20%20%20%20%20%20%20%20ax.set_xlabel(%22Value%22)%0A%20%20%20%20%20%20%20%20%20%20%20%20ax.set_ylabel(%22Uncertainty%22)%0A%0A%20%20%20%20fig.suptitle(f%22VSUP%3A%20%7Bpalette%7D%20palette%22)%0A%20%20%20%20plt.tight_layout()%0A%20%20%20%20return%20fig%0A%0Afunc%20%3D%20palette_not_selected%20if%20not%20palette.value%20else%20lambda%20%3A%20showcase_palette(palette.value)%0Afunc()</marimo-cell-code></marimo-island></p>
 <h2 id="features">Features</h2>
 <ul>
@@ -755,7 +714,7 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.sections"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.56ea9cef.min.js"></script>

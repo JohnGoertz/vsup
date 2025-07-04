@@ -1,5 +1,5 @@
 """
-Quantization functions for VSUP.
+## Quantization functions for VSUP.
 
 This module provides functions for quantizing value and uncertainty pairs
 into discrete levels for visualization. Quantization is an important step in
@@ -7,12 +7,14 @@ VSUP that helps reduce the complexity of the visualization while maintaining
 the essential patterns in the data.
 
 The module provides two quantization strategies:
+
 1. Linear quantization: Independently bins values and uncertainties into
    equal-width intervals. This is simpler but may not capture the relationship
    between value and uncertainty.
 2. Tree quantization: Uses a hierarchical approach where the number of value
    bins depends on the uncertainty level. Higher uncertainty means fewer value
    bins, reflecting the reduced confidence in precise value distinctions.
+
 """
 
 import numpy as np

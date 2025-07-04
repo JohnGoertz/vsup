@@ -2,7 +2,8 @@ site_name: VSUP
 
 theme:
   name: "material"
-# theme: readthedocs
+  features:
+    - navigation.sections
 
 repo_name: VSUP
 repo_url: https://github.com/JohnGoertz/vsup
@@ -11,9 +12,11 @@ site_url: https://JohnGoertz.github.io/vsup
 plugins:
 - search
 - marimo
-- mkdocs-autoapi:
-    autoapi_dir: vsup
-- mkdocstrings
+- mkdocstrings:
+    handlers:
+      python:
+        options:
+          docstring_style: numpy
 
 markdown_extensions:
   - admonition
@@ -30,3 +33,7 @@ markdown_extensions:
 
 nav:
   - Overview: index.md
+  - API Reference:
+    - vsup: api/vsup.md
+    - quantization: api/quantization.md
+    - transforms: api/transforms.md

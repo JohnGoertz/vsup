@@ -1,5 +1,5 @@
 """
-Color transformation functions for VSUP.
+## Color transformation functions for VSUP.
 
 This module provides functions for converting between different color spaces
 and applying uncertainty-based transformations to colors using CIELAB color space.
@@ -8,9 +8,11 @@ based on the uncertainty value, making it easier to understand the reliability
 of the data while maintaining the ability to distinguish values.
 
 The module provides three transformation modes:
+
 1. USL: Uncertainty affects both saturation and lightness
 2. US: Uncertainty affects saturation only
 3. UL: Uncertainty affects lightness only
+
 """
 
 import numpy as np
@@ -40,7 +42,7 @@ def usl_transform(
         Minimum saturation/chroma (0 to 1). Higher values ensure colors
         remain visible even at high uncertainty. Default is 0.0.
     lmax : float, optional
-        Maximum lightness (0 to 1). The maximum lightness will be 100 * lmax.
+        Maximum lightness (0 to 1). The maximum lightness will be 100 \* lmax.
         Controls how white the colors become at high uncertainty.
         Default is 1.0.
 

@@ -1,5 +1,5 @@
 """
-Value-Suppressing Uncertainty Palettes (VSUP) for visualizing data with uncertainty.
+## Value-Suppressing Uncertainty Palettes (VSUP) for visualizing data with uncertainty.
 
 This module provides a class for creating and using VSUPs to visualize data with uncertainty
 by mapping both value and uncertainty to color properties. VSUPs are a visualization technique
@@ -7,14 +7,16 @@ that encodes both the value and its uncertainty in a single color, making it eas
 understand the reliability of the data while maintaining the ability to distinguish values.
 
 The module supports three visualization modes:
+
 - USL: Uncertainty mapped to both Saturation and Lightness
 - US: Uncertainty mapped to Saturation only
 - UL: Uncertainty mapped to Lightness only
 
-Note that transformations take place in the CIELAB color space: L-modes increase L* (lightness),
-while S-modes decrease "chroma": a* (green-red) and b* (blue-yellow), equally.
+Note that transformations take place in the CIELAB color space: L-modes increase L\* (lightness),
+while S-modes decrease "chroma": a\* (green-red) and b\* (blue-yellow), equally.
 
 It also provides two quantization methods:
+
 - Linear: Independent binning of values and uncertainties
 - Tree: Value bins depend on uncertainty level (higher uncertainty = fewer value bins)
 """
@@ -77,7 +79,7 @@ class VSUP:
         Minimum saturation/chroma (0 to 1). Default is 0.2. Higher values ensure
         colors remain visible even at high uncertainty.
     lmax : float, optional
-        Maximum lightness (0 to 1). The maximum lightness will be 100 * lmax.
+        Maximum lightness (0 to 1). The maximum lightness will be 100 \* lmax.
         Default is 0.9. Controls how white the colors become at high uncertainty.
     """
 

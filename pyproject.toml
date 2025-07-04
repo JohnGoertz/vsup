@@ -58,7 +58,6 @@ exclude_lines = [
 [dependency-groups]
 dev = [
     "mkdocs>=1.6.1",
-    "mkdocs-autoapi>=0.4.1",
     "mkdocs-marimo>=0.2.1",
     "mkdocs-material>=9.6.15",
     "mkdocstrings-python>=1.16.12",

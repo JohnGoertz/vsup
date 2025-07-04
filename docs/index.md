@@ -64,7 +64,7 @@ await micropip.install(["vsup", "matplotlib", "numpy"])
 
 from matplotlib import colormaps
 
-seaborn_colors = ["flare"]
+seaborn_colors = ["flare", "rocket", "crest", "mako", "coolwarm", "vlag", "icefire", "ch:s=-.2,r=.6", "ch:start=.2,rot=-.3", "husl"]
 matplotlib_colors = list(colormaps)
 colors = seaborn_colors + matplotlib_colors
 
